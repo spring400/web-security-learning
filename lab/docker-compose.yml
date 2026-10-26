@@ -1,0 +1,56 @@
+# ============================================================
+#  Web 渗透测试本地靶场
+#  用法：cd lab; .\lab.ps1 up
+#  注意：所有端口均绑定 127.0.0.1，仅本机可访问
+# ============================================================
+name: pentest-lab
+
+services:
+  # ---- DVWA：最经典的 PHP 靶场，四档难度 ----
+  # 访问 http://127.0.0.1:8081   账号 admin / password
+  dvwa:
+    image: vulnerables/web-dvwa
+    container_name: lab-dvwa
+    ports:
+      - "127.0.0.1:8081:80"
+    environment:
+      TZ: Asia/Shanghai
+    restart: unless-stopped
+    profiles: ["dvwa", "all"]
+
+  # ---- OWASP Juice Shop：现代 SPA 靶场，60+ 挑战 ----
+  # 访问 http://127.0.0.1:3000   自行注册
+  juice-shop:
+    image: bkimminich/juice-shop
+    container_name: lab-juice
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      TZ: Asia/Shanghai
+    restart: unless-stopped
+    profiles: ["juice", "all"]
+
+  # ---- bWAPP：100+ 漏洞，覆盖面最广 ----
+  # 访问 http://127.0.0.1:8082   账号 bee / bug
+  bwapp:
+    image: raesene/bwapp
+    container_name: lab-bwapp
+    ports:
+      - "127.0.0.1:8082:80"
+    environment:
+      TZ: Asia/Shanghai
+    restart: unless-stopped
+    profiles: ["bwapp", "all"]
+
+  # ---- WebGoat：教程式 Java 靶场，每关带讲解 ----
+  # 访问 http://127.0.0.1:8083   自行注册
+  webgoat:
+    image: webgoat/webgoat
+    container_name: lab-webgoat
+    ports:
+      - "127.0.0.1:8083:8080"
+    environment:
+      TZ: Asia/Shanghai
+      WEBGOAT_PORT: "8080"
+    restart: unless-stopped
+    profiles: ["webgoat", "all"]

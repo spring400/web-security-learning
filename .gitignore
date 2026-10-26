@@ -1,0 +1,21 @@
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# 临时文件
+*.log
+*.tmp
+~$*
+
+# 靶场本地数据（容器卷不在仓库内，这里只防误提交）
+lab/data/
