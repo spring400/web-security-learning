@@ -18,8 +18,9 @@
 ## 进度
 
 - [x] **W1** 环境与习惯（Git / Docker / WSL2 / DVWA）
-- [ ] **W2** Bandit 1–15 + Git 基础 ← 当前
-- [ ] W3–W8 Linux + 计算机网络
+- [x] **W2** Bandit 1–15 + Git 基础（2026-11-02 ~ 11-08）
+- [ ] **W3** Linux 文件系统与权限 ← 当前（11/09 起）
+- [ ] W4–W8 Linux 进程 + 计算机网络 + Python 基础
 - [ ] W9–W12 前端 + 数据库
 - [ ] W13–W14 期末周
 - [ ] W15–W17 Flask + OWASP 预习
